@@ -2,9 +2,9 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Defines an attached DependencyProperty</Title>
-            <Shortcut>propa</Shortcut>
-            <Description>Code snippet for an attached DependencyProperty</Description>
+            <Title>Defines a read-only attached DependencyProperty</Title>
+            <Shortcut>propar</Shortcut>
+            <Description>Code snippet for a read-only attached DependencyProperty.</Description>
             <Author>Manuel Römer</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -35,15 +35,18 @@
             </Declarations>
             <Code Language="csharp">
                 <![CDATA[
+private static readonly DependencyPropertyKey $property$PropertyKey = 
+    DependencyProperty.RegisterAttachedReadOnly(
+        "$property$", 
+        typeof($type$),
+        typeof($ownerclass$),
+        new PropertyMetadata($defaultvalue$));
+
 /// <summary>
 /// Identifies the $property$ attached dependency property.
 /// </summary>
-public static readonly DependencyProperty $property$Property = 
-    DependencyProperty.RegisterAttached(
-        "$property$", 
-        typeof($type$), 
-        typeof($ownerclass$), 
-        new PropertyMetadata($defaultvalue$));
+public static readonly DependencyProperty $property$Property =
+    $property$PropertyKey.DependencyProperty;
 
 /// <summary>
 /// Gets the value of the <see cref="$property$Property"/> attached dependency property
@@ -61,20 +64,8 @@ public static readonly DependencyProperty $property$Property =
 public static $type$ Get$property$(DependencyObject obj) =>
     ($type$)obj.GetValue($property$Property);
 
-/// <summary>
-/// Sets the value of the <see cref="$property$Property"/> attached dependency property
-/// for a given <see cref="DependencyObject"/>.
-/// </summary>
-/// <param name="obj">
-/// The <see cref="DependencyObject"/> for which the local value of the
-/// <see cref="$property$Property"/> attached dependency property
-/// should be set.
-/// </param>
-/// <param name="value">
-/// The new value for the dependency property.
-/// </param>
-public static void Set$property$(DependencyObject obj, $type$ value) =>
-    obj.SetValue($property$Property, value);
+private static void Set$property$(DependencyObject obj, $type$ value) =>
+    obj.SetValue($property$PropertyKey, value);
 $end$]]>
             </Code>
         </Snippet>
