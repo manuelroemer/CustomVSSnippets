@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Define a full event</Title>
+            <Shortcut>eventf</Shortcut>
+            <Description>Code snippet for a full event, with a RaiseEvent and OnEvent method.</Description>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>name</ID>
+                    <ToolTip>Event name</ToolTip>
+                    <Default>MyEvent</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+/// <summary>
+/// Occurs when 
+/// </summary>
+public event EventHandler $name$;
+
+private void Raise$name$()
+{
+    On$name$();
+    $name$?.Invoke(this, EventArgs.Empty);
+}
+
+/// <summary>
+/// Called before the <see cref="$name$"/> event occurs.
+/// </summary>
+protected virtual void On$name$() { }
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
