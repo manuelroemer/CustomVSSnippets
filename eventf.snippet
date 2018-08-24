@@ -25,7 +25,11 @@
 /// </summary>
 public event EventHandler $name$;
 
-private void Raise$name$()
+/// <summary>
+/// Raises the <see cref="$name$"/> event and
+/// calls the <see cref="On$name$"/> method afterwards.
+/// </summary>
+protected void Raise$name$()
 {
     On$name$();
     $name$?.Invoke(this, EventArgs.Empty);
