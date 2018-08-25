@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Defines a full range of properties required for a custom Content property in a Control.</Title>
+            <Shortcut>wpfcontentproperty</Shortcut>
+            <Description>Code snippet for a Content property set for a Control in WPF.</Description>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>name</ID>
+                    <ToolTip>Property name</ToolTip>
+                    <Default>Content</Default>
+                </Literal>
+            <Declarations>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>Owner Class</ToolTip>
+                    <Default>ClassName</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+private static readonly DependencyPropertyKey Has$name$PropertyKey =
+    DependencyProperty.RegisterReadOnly(
+        nameof(Has$name$),
+        typeof(bool),
+        typeof($ownerclass$),
+        new PropertyMetadata(false));
+
+/// <summary>
+/// Identifies the <see cref="Has$name$"/> dependency property.
+/// </summary>
+public static readonly DependencyProperty Has$name$Property =
+    Has$name$PropertyKey.DependencyProperty;
+
+/// <summary>
+/// Identifies the <see cref="$name$"/> dependency property.
+/// </summary>
+public static readonly DependencyProperty $name$Property =
+    DependencyProperty.Register(
+        nameof($name$),
+        typeof(object),
+        typeof($ownerclass$),
+        new PropertyMetadata(
+            null,
+            $name$_Changed));
+
+/// <summary>
+/// Identifies the <see cref="$name$Template"/> dependency property.
+/// </summary>
+public static readonly DependencyProperty $name$TemplateProperty =
+    DependencyProperty.Register(
+        nameof($name$Template),
+        typeof(DataTemplate),
+        typeof($ownerclass$),
+        new PropertyMetadata(
+            null,
+            $name$Template_Changed));
+
+/// <summary>
+/// Identifies the <see cref="$name$TemplateSelector"/> dependency property.
+/// </summary>
+public static readonly DependencyProperty $name$TemplateSelectorProperty =
+    DependencyProperty.Register(
+        nameof($name$TemplateSelector),
+        typeof(DataTemplateSelector),
+        typeof($ownerclass$),
+        new PropertyMetadata(
+            null,
+            $name$TemplateSelector_Changed));
+
+/// <summary>
+/// Identifies the <see cref="$name$StringFormat"/> dependency property.
+/// </summary>
+public static readonly DependencyProperty $name$StringFormatProperty =
+    DependencyProperty.Register(
+        nameof($name$StringFormat),
+        typeof(string),
+        typeof($ownerclass$),
+        new PropertyMetadata(
+            null,
+            $name$StringFormat_Changed));
+            
+/// <summary>
+/// Gets a value indicating whether the <see cref="$name$"/> property of this
+/// <see cref="$ownerclass$"/> holds any content.
+/// </summary>
+[Bindable(false), Browsable(false)]
+public bool Has$name$
+{
+    get { return (bool)GetValue(Has$name$Property); }
+    private set { SetValue(Has$name$PropertyKey, value); }
+}
+
+/// <summary>
+/// Gets or sets the content which is being displayed in the $name$ of the
+/// <see cref="$ownerclass$"/>.
+/// </summary>
+[Bindable(true), Category("Content")]
+[Localizability(LocalizationCategory.Label)]
+public object $name$
+{
+    get { return (object)GetValue($name$Property); }
+    set { SetValue($name$Property, value); }
+}
+
+/// <summary>
+/// Gets or sets a <see cref="DataTemplate"/> to be used for displaying the 
+/// <see cref="$name$"/> content.
+/// </summary>
+[Bindable(true), Category("Content")]
+public DataTemplate $name$Template
+{
+    get { return (DataTemplate)GetValue($name$TemplateProperty); }
+    set { SetValue($name$TemplateProperty, value); }
+}
+
+/// <summary>
+/// Gets or sets <see cref="DataTemplateSelector"/> which enables an application writer
+/// to provide custom template-selection logic for the <see cref="$name$"/> content.
+/// </summary>
+[Bindable(true), Category("Content")]
+public DataTemplateSelector $name$TemplateSelector
+{
+    get { return (DataTemplateSelector)GetValue($name$TemplateSelectorProperty); }
+    set { SetValue($name$TemplateSelectorProperty, value); }
+}
+
+/// <summary>
+/// Gets or sets a composite string that specifies how to format the <see cref="$name$"/>
+/// content property, if it is displayed as a string.
+/// </summary>
+[Bindable(true), Category("Content")]
+public string $name$StringFormat
+{
+    get { return (string)GetValue($name$StringFormatProperty); }
+    set { SetValue($name$StringFormatProperty, value); }
+}
+
+private static void $name$_Changed(
+    DependencyObject d, DependencyPropertyChangedEventArgs e)
+{
+    var self = ($ownerclass$)d;
+    self.Has$name$ = e.NewValue != null;
+    self.On$name$Changed(e.OldValue, e.NewValue);
+}
+
+private static void $name$Template_Changed(
+    DependencyObject d, DependencyPropertyChangedEventArgs e)
+{
+    var self = ($ownerclass$)d;
+    self.On$name$TemplateChanged((DataTemplate)e.OldValue, (DataTemplate)e.NewValue);
+}
+
+private static void $name$TemplateSelector_Changed(
+    DependencyObject d, DependencyPropertyChangedEventArgs e)
+{
+    var self = ($ownerclass$)d;
+    self.On$name$TemplateSelectorChanged(
+        (DataTemplateSelector)e.OldValue, (DataTemplateSelector)e.NewValue);
+}
+
+private static void $name$StringFormat_Changed(
+    DependencyObject d, DependencyPropertyChangedEventArgs e)
+{
+    var self = ($ownerclass$)d;
+    self.On$name$StringFormatChanged((string)e.OldValue, (string)e.NewValue);
+}
+
+/// <summary>
+/// Called when the <see cref="$name$"/> property was changed.
+/// </summary>
+/// <param name="oldValue">The old value of the <see cref="$name$"/> property.</param>
+/// <param name="newValue">The new value of the <see cref="$name$"/> property.</param>
+protected virtual void On$name$Changed(object oldValue, object newValue)
+{
+    RemoveLogicalChild(oldValue);
+    AddLogicalChild(newValue);
+}
+
+/// <summary>
+/// Called when the <see cref="$name$Template"/> property was changed.
+/// </summary>
+/// <param name="oldTemplate">The old value of the <see cref="$name$Template"/> property.</param>
+/// <param name="newTemplate">The new value of the <see cref="$name$Template"/> property.</param>
+protected virtual void On$name$TemplateChanged(
+    DataTemplate oldTemplate, DataTemplate newTemplate)
+{ }
+
+/// <summary>
+/// Called when the <see cref="$name$TemplateSelector"/> property was changed.
+/// </summary>
+/// <param name="oldSelector">
+/// The old value of the <see cref="$name$TemplateSelector"/> property.
+/// </param>
+/// <param name="newSelector">
+/// The new value of the <see cref="$name$TemplateSelector"/> property.
+/// </param>
+protected virtual void On$name$TemplateSelectorChanged(
+    DataTemplateSelector oldSelector, DataTemplateSelector newSelector)
+{ }
+
+/// <summary>
+/// Called when the <see cref="$name$StringFormat"/> property was changed.
+/// </summary>
+/// <param name="oldStringFormat">
+/// The old value of the <see cref="$name$StringFormat"/> property.
+/// </param>
+/// <param name="newStringFormat">
+/// The new value of the <see cref="$name$StringFormat"/> property.
+/// </param>
+protected virtual void On$name$StringFormatChanged(
+    string oldStringFormat, string newStringFormat)
+{ }
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
