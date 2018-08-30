@@ -142,6 +142,20 @@ public string $name$StringFormat
     set { SetValue($name$StringFormatProperty, value); }
 }
 
+/// <summary>
+/// Gets an enumerator on the <see cref="$ownerclass$"/>'s logical children.
+/// </summary>
+protected override IEnumerator LogicalChildren
+{
+    get
+    {
+        yield return base.LogicalChildren;
+        if ($name$ != null)
+            yield return $name$;
+        // TODO: Return additional content properties, if any exist.
+    }
+}
+
 private static void $name$_Changed(
     DependencyObject d, DependencyPropertyChangedEventArgs e)
 {
