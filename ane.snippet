@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Throw ArgumentNullException</Title>
+            <Shortcut>ane</Shortcut>
+            <Description>A snippet for a line of code that throws an ArgumentNullException if a field is null.</Description>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>arg</ID>
+                    <ToolTip>Argument name</ToolTip>
+                    <Default>arg</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[if ($arg$ is null) throw new ArgumentNullException($arg$); $end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
