@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Setter</Title>
+            <Shortcut>setter</Shortcut>
+            <Description>Code snippet for creating a Setter in a Style.</Description>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>propertyName</ID>
+                    <ToolTip>Property name</ToolTip>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>value</ID>
+                    <ToolTip>Property Value</ToolTip>
+                    <Default></Default>
+                </Literal>
+            </Declarations>
+            <Code Language="XAML">
+                <![CDATA[<Setter Property="$propertyName$" Value="$value$" /> $end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

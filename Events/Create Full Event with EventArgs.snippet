@@ -4,7 +4,7 @@
         <Header>
             <Title>Define a full event with EventArgs</Title>
             <Shortcut>eventfa</Shortcut>
-            <Description>Code snippet for a full event with EventArgs, with a RaiseEvent and OnEvent method.</Description>
+            <Description>Code snippet for a full event with EventArgs, with an OnEvent method.</Description>
             <Author>Manuel Römer</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -31,21 +31,13 @@
 public event EventHandler<$eventargs$> $name$;
 
 /// <summary>
-/// Raises the <see cref="$name$"/> event and
-/// calls the <see cref="On$name$"/> method afterwards.
-/// </summary>
-/// <param name="e">Event data for the event.</param>
-protected void Raise$name$($eventargs$ e)
-{
-    On$name$(e);
-    $name$?.Invoke(this, e);
-}
-
-/// <summary>
 /// Called before the <see cref="$name$"/> event occurs.
 /// </summary>
 /// <param name="e">Event data for the event.</param>
-protected virtual void On$name$($eventargs$ e) { }
+protected virtual void On$name$($eventargs$ e)
+{
+    $name$?.Invoke(this, e);
+}
 $end$]]>
             </Code>
         </Snippet>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>ControlTemplate with ResourceKey</Title>
+            <Shortcut>templatek</Shortcut>
+            <Description>Code snippet for creating an empty ControlTemplate with a resource key.</Description>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+                <SnippetType>SurroundsWith</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>targetType</ID>
+                    <ToolTip>Target Type</ToolTip>
+                    <Default>Control</Default>
+                </Literal>
+                <Literal>
+                    <ID>key</ID>
+                    <ToolTip>Resource Key</ToolTip>
+                    <Default>ResourceKey</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="XAML">
+                <![CDATA[
+                    <ControlTemplate x:Key="$key$" TargetType="$targetType$">
+                        $selected$
+                    </ControlTemplate> 
+                $end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
