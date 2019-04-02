@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>IDisposable Pattern</Title>
+            <Shortcut>disposep</Shortcut>
+            <Description>A snippet for the code which implements the common IDisposable pattern for unmanaged objects.</Description>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>classname</ID>
+                    <ToolTip>The name of the class.</ToolTip>
+                    <Default>$classname$</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+private bool _isDisposed;
+            
+~$classname$()
+{
+    Dispose(false);
+}
+
+/// <summary>
+///     Releases managed and unmanaged resources allocated by this object.
+/// </summary>
+public void Dispose()
+{
+    Dispose(true);
+    GC.SuppressFinalize(this);
+}
+
+/// <summary>
+///     Releases managed and unmanaged resources allocated by this object.
+/// </summary>
+/// <param name="disposeManagedObjects">
+///     A value indicating whether managed objects should be disposed or not.
+/// </param>
+protected virtual void Dispose(bool disposeManagedObjects)
+{
+    if (_isDisposed)
+        return;
+
+    if (!_isDisposed)
+    {
+        if (disposeManagedObjects)
+        {
+            // TODO: dispose managed state (managed objects).
+        }
+
+        // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+        // TODO: set large fields to null.
+
+        _isDisposed = true;
+    }
+}
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

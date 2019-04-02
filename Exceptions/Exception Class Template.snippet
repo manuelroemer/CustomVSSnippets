@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>New Exception Class</Title>
+            <Shortcut>Exception</Shortcut>
+            <Description>A snippet for a custom Exception class with XML comments.</Description>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>name</ID>
+                    <ToolTip>Exception name</ToolTip>
+                    <Default>My</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+/// <summary>
+///     An exception that gets thrown when 
+/// </summary>
+[Serializable]
+public class $name$Exception : Exception
+{
+    
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="$name$Exception"/> class
+    ///     with a default error message.
+    /// </summary>
+    public $name$Exception()
+        : this(message: null, innerException: null) { }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="$name$Exception"/> class
+    ///     with the specified error message.
+    /// </summary>
+    /// <param name="message">
+    ///     The message that describes the error or <c>null</c> to use a default message.
+    /// </param>
+    public $name$Exception(string? message) 
+        : this(message, innerException: null) { }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="$name$Exception"/> class
+    ///     with the specified error message and and another exception which was the cause
+    ///     of this exception.
+    /// </summary>
+    /// <param name="message">
+    ///     The message that describes the error or <c>null</c> to use a default message.
+    /// </param>
+    /// <param name="innerException">
+    ///     The exception that is the cause of this exception, or <c>null</c>, if no inner
+    ///     exception is specified.
+    /// </param>
+    public $name$Exception(string? message, Exception? innerException) 
+        : base(message ?? GetDefaultMessage(), innerException) { }
+
+    protected $name$Exception(SerializationInfo info, StreamingContext context) 
+        : base(info, context) { }
+
+    private static string GetDefaultMessage()
+    {
+        throw new NotImplementedException();
+    }
+
+}
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
