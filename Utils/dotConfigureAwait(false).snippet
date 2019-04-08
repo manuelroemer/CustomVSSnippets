@@ -2,9 +2,8 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Throw ArgumentNullException</Title>
-            <Shortcut>ane</Shortcut>
-            <Description>A snippet for a line of code that throws an ArgumentNullException if a field is null.</Description>
+            <Title>Task .ConfigureAwait(false)</Title>
+            <Shortcut>ca</Shortcut>
             <Author>Manuel Römer</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -13,13 +12,13 @@
         <Snippet>
             <Declarations>
                 <Literal>
-                    <ID>arg</ID>
-                    <ToolTip>Argument name</ToolTip>
-                    <Default>arg</Default>
+                    <ID>val</ID>
+                    <ToolTip>Value</ToolTip>
+                    <Default>false</Default>
                 </Literal>
             </Declarations>
             <Code Language="csharp">
-                <![CDATA[if ($arg$ is null) throw new ArgumentNullException(nameof($arg$));$end$]]>
+                <![CDATA[.ConfigureAwait($val$)$end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>

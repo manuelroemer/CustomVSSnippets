@@ -2,9 +2,8 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Throw ArgumentNullException</Title>
-            <Shortcut>ane</Shortcut>
-            <Description>A snippet for a line of code that throws an ArgumentNullException if a field is null.</Description>
+            <Title>MSTest - Test Method (Async)</Title>
+            <Shortcut>testma</Shortcut>
             <Author>Manuel Römer</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -13,13 +12,17 @@
         <Snippet>
             <Declarations>
                 <Literal>
-                    <ID>arg</ID>
-                    <ToolTip>Argument name</ToolTip>
-                    <Default>arg</Default>
+                    <ID>name</ID>
+                    <ToolTip>Method name</ToolTip>
+                    <Default>MyAsyncTestMethod</Default>
                 </Literal>
             </Declarations>
             <Code Language="csharp">
-                <![CDATA[if ($arg$ is null) throw new ArgumentNullException(nameof($arg$));$end$]]>
+                <![CDATA[[TestMethod]
+public async Task $name$()
+{
+
+}$end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>

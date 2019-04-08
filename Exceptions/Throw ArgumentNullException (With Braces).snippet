@@ -2,8 +2,8 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Throw ArgumentNullException</Title>
-            <Shortcut>ane</Shortcut>
+            <Title>Throw ArgumentNullException (With Braces)</Title>
+            <Shortcut>aneb</Shortcut>
             <Description>A snippet for a line of code that throws an ArgumentNullException if a field is null.</Description>
             <Author>Manuel Römer</Author>
             <SnippetTypes>
@@ -19,7 +19,10 @@
                 </Literal>
             </Declarations>
             <Code Language="csharp">
-                <![CDATA[if ($arg$ is null) throw new ArgumentNullException(nameof($arg$));$end$]]>
+                <![CDATA[if ($arg$ is null)
+                {
+                    throw new ArgumentNullException(nameof($arg$));
+                }$end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>
