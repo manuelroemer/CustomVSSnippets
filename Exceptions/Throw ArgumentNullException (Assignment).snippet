@@ -2,9 +2,9 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Throw ArgumentNullException</Title>
-            <Shortcut>ane</Shortcut>
-            <Description>A snippet for a line of code that throws an ArgumentNullException if a field is null.</Description>
+            <Title>Throw ArgumentNullException (Assignment)</Title>
+            <Shortcut>anea</Shortcut>
+            <Description>A snippet for a line of code that throws an ArgumentNullException during an object assignment.</Description>
             <Author>Manuel Römer</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -13,13 +13,18 @@
         <Snippet>
             <Declarations>
                 <Literal>
+                    <ID>field</ID>
+                    <ToolTip>Field name</ToolTip>
+                    <Default>field</Default>
+                </Literal>
+                <Literal>
                     <ID>arg</ID>
                     <ToolTip>Argument name</ToolTip>
                     <Default>arg</Default>
                 </Literal>
             </Declarations>
             <Code Language="csharp">
-                <![CDATA[_ = $arg$ ?? throw new ArgumentNullException(nameof($arg$));$end$]]>
+                <![CDATA[$field$ = $arg$ ?? throw new ArgumentNullException(nameof($arg$));$end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>

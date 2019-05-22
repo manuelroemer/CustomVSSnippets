@@ -2,9 +2,8 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Throw ArgumentNullException</Title>
-            <Shortcut>ane</Shortcut>
-            <Description>A snippet for a line of code that throws an ArgumentNullException if a field is null.</Description>
+            <Title>FluentAssertions - Should</Title>
+            <Shortcut>should</Shortcut>
             <Author>Manuel Römer</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -13,13 +12,18 @@
         <Snippet>
             <Declarations>
                 <Literal>
-                    <ID>arg</ID>
-                    <ToolTip>Argument name</ToolTip>
-                    <Default>arg</Default>
+                    <ID>element</ID>
+                    <ToolTip>This element...</ToolTip>
+                    <Default>element</Default>
+                </Literal>
+                <Literal>
+                    <ID>do</ID>
+                    <ToolTip>...should do...</ToolTip>
+                    <Default>Be()</Default>
                 </Literal>
             </Declarations>
             <Code Language="csharp">
-                <![CDATA[_ = $arg$ ?? throw new ArgumentNullException(nameof($arg$));$end$]]>
+                <![CDATA[$element$.Should().$do$;$end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>

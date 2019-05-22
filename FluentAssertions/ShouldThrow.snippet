@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>FluentAssertions - Should Throw</Title>
+            <Shortcut>shouldt</Shortcut>
+            <Author>Manuel Römer</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>method</ID>
+                    <ToolTip>The method that should throw.</ToolTip>
+                    <Default>FooAsync()</Default>
+                </Literal>
+                <Literal>
+                    <ID>exception</ID>
+                    <ToolTip>The expected exception.</ToolTip>
+                    <Default>Exception</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[Action testCode = () => $method$;
+                testCode.Should().Throw<$exception$>();$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
